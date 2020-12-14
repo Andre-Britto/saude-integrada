@@ -1,0 +1,58 @@
+{% extends 'home/home.html' %}
+{% load static %}
+{% block title %}Supervisão e Controle{% endblock %}
+{% block content %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>DISC - Diretoria de Supervisão e Controle - SMSA </h2>
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                    {{ block.super }}
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'disc' %}">DISC</a>
+                    </li>
+                {% endblock %}
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a href="{% url 'ocupacao' %}">
+                                <div class="widget style1 bg-primary">
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <i class="fa fa fa-bed fa-5x"></i>
+                                        </div>
+                                        <div class="col-8 text-right">
+                                            <span style="font-size: 25px">Ocupação</span>
+                                            <h2 class="font-bold">-</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block disc %}
+        <script src='{% static "home/js/disc/ocupacao.js" %}'></script>
+    {% endblock %}
+    {% block higchart %}
+    <!-- Higcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
+    <script>
+        Highcharts.chart('taxa_ocupacao', {{ taxa_ocupacao|safe }});
+    </script>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'home/home.html' %}
+{% load static %}
+{% block title %}Vigilância em Saúde{% endblock %}
+{% block content %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>DIVS - Diretoria de Vigilância em Saúde - SMSA </h2>
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                    {{ block.super }}
+                    <li class="breadcrumb-item">
+                        COVID-19
+                    </li>
+                {% endblock %}
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>PROJETOS </h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a href="{% url 'semidgeo' %}">
+                                <div class="widget style1 bg-warning">
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <i class="fa fa fa-exclamation-triangle fa-5x"></i>
+                                        </div>
+                                        <div class="col-8 text-right">
+                                            <span style="font-size: 25px">Sem IDGEO</span>
+                                            <h2 class="font-bold">{{ contrato }}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

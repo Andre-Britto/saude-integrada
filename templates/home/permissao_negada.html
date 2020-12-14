@@ -1,0 +1,28 @@
+{% extends 'home/home.html' %}
+{% block title %}Lista de Clientes{% endblock %}
+{% block content %}
+    <style type="text/css">
+    p{
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+        font-size: 50px;
+        color: #3b6c78;
+        background-color: #ffe313;
+        position: center;
+    }
+    </style>
+    <div class="card">
+        <div class="table-responsive m-t-40 table-responsive m-t-40 tab-pane  p-20 active" role="tabpanel">
+            <div class="card-body">
+                <div class="permissao_negada">
+                    <p>Acesso Restrito</p>
+                    <p>Entre em Contato com o ADM do Sistema</p>
+                </div>
+                <div>
+                    <a href="{% url 'home' %}"><button type="button" class="btn voltar btn-success" data-url="#">Voltar</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

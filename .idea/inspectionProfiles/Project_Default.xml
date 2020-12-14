@@ -1,0 +1,102 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="94" name="JavaScript" />
+        <language minSize="297" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="11">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="td" />
+            <item index="7" class="java.lang.String" itemvalue="div" />
+            <item index="8" class="java.lang.String" itemvalue="button" />
+            <item index="9" class="java.lang.String" itemvalue="p" />
+            <item index="10" class="java.lang.String" itemvalue="h3" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyArgumentListInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="46">
+            <item index="0" class="java.lang.String" itemvalue="diff-match-patch" />
+            <item index="1" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="2" class="java.lang.String" itemvalue="sweetify" />
+            <item index="3" class="java.lang.String" itemvalue="psycopg2-binary" />
+            <item index="4" class="java.lang.String" itemvalue="defusedxml" />
+            <item index="5" class="java.lang.String" itemvalue="MarkupSafe" />
+            <item index="6" class="java.lang.String" itemvalue="requests" />
+            <item index="7" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="8" class="java.lang.String" itemvalue="sqlparse" />
+            <item index="9" class="java.lang.String" itemvalue="django-widget-tweaks" />
+            <item index="10" class="java.lang.String" itemvalue="jdcal" />
+            <item index="11" class="java.lang.String" itemvalue="certifi" />
+            <item index="12" class="java.lang.String" itemvalue="urllib3" />
+            <item index="13" class="java.lang.String" itemvalue="xlrd" />
+            <item index="14" class="java.lang.String" itemvalue="django-crispy-forms" />
+            <item index="15" class="java.lang.String" itemvalue="py-moneyed" />
+            <item index="16" class="java.lang.String" itemvalue="tablib" />
+            <item index="17" class="java.lang.String" itemvalue="django-import-export" />
+            <item index="18" class="java.lang.String" itemvalue="asgiref" />
+            <item index="19" class="java.lang.String" itemvalue="xlwt" />
+            <item index="20" class="java.lang.String" itemvalue="et-xmlfile" />
+            <item index="21" class="java.lang.String" itemvalue="MarkupPy" />
+            <item index="22" class="java.lang.String" itemvalue="chardet" />
+            <item index="23" class="java.lang.String" itemvalue="odfpy" />
+            <item index="24" class="java.lang.String" itemvalue="django-money" />
+            <item index="25" class="java.lang.String" itemvalue="Django" />
+            <item index="26" class="java.lang.String" itemvalue="future" />
+            <item index="27" class="java.lang.String" itemvalue="pyepicollect" />
+            <item index="28" class="java.lang.String" itemvalue="python-decouple" />
+            <item index="29" class="java.lang.String" itemvalue="pytz" />
+            <item index="30" class="java.lang.String" itemvalue="config" />
+            <item index="31" class="java.lang.String" itemvalue="idna" />
+            <item index="32" class="java.lang.String" itemvalue="openpyxl" />
+            <item index="33" class="java.lang.String" itemvalue="pbr" />
+            <item index="34" class="java.lang.String" itemvalue="dj-database-url" />
+            <item index="35" class="java.lang.String" itemvalue="six" />
+            <item index="36" class="java.lang.String" itemvalue="wheel" />
+            <item index="37" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="38" class="java.lang.String" itemvalue="dj-static" />
+            <item index="39" class="java.lang.String" itemvalue="gunicorn" />
+            <item index="40" class="java.lang.String" itemvalue="static3" />
+            <item index="41" class="java.lang.String" itemvalue="mock" />
+            <item index="42" class="java.lang.String" itemvalue="django-taggit" />
+            <item index="43" class="java.lang.String" itemvalue="model-mommy" />
+            <item index="44" class="java.lang.String" itemvalue="django-toolbelt" />
+            <item index="45" class="java.lang.String" itemvalue="Pillow" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
+          <option value="N806" />
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="decouple.config" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

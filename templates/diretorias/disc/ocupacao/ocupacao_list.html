@@ -1,0 +1,34 @@
+{% for ocupacao in ocupacao %}
+    <tr data-color="1" align="center">
+        <td style="display:none">{{ ocupacao.id }}</td>
+        <td>{{ ocupacao.tipo_ocupacao }}</td>
+        <td>{{ ocupacao.leito_ocupado }}</td>
+        <td>{{ ocupacao.leito_disponivel }}</td>
+        <td>{{ ocupacao.taxa | floatformat:2 }} %</td>
+        <td>{{ ocupacao.data_ocupacao }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-ocupacao"
+                    data-url="{% url 'ocupacao_update' ocupacao.slug %}">
+                <span class="glyphicon glyphicon-pencil"></span> Editar
+            </button>
+            <a href="{% url 'ocupacao_desativar' ocupacao.slug %}"
+               onclick=" return confirm('Deseja Inativar essa ocupação? ');">
+                <button type="button"
+                        class="btn btn-danger btn-sm"
+                        data-url="">
+                    <span class="glyphicon glyphicon-remove-sign"></span> Inativar
+                </button>
+            </a>
+        </td>
+    </tr>
+{% endfor %}
+
+{% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+    </div>
+{% endfor %}

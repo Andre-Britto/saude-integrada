@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="André Britto" content="">
+    <title>{% block title %}Home{% endblock %}</title>
+
+    <link href='{% static "home/css/bootstrap.min.css" %}' rel="stylesheet">
+    <link href='{% static "home/fontawesome/css/all.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/plugins/sweetalert/sweetalert.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/plugins/chosen/bootstrap-chosen.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/plugins/select2/select2.min.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/animate.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/plugins/dataTables/datatables.min.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/plugins/footable/footable.core.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/highcharts.css" %}' rel="stylesheet">
+
+    <link href='{% static "home/css/plugins/datapicker/datepicker3.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/plugins/iCheck/custom.css" %}' rel="stylesheet">
+    <!-- orris -->
+    <link href='{% static "home/css/animate.css" %}' rel="stylesheet">
+    <link href='{% static "home/css/style.css" %}' rel="stylesheet">
+
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <img alt="image" class="rounded-circle" src='{% static "home/img/ccz/pmfi.png" %}'>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="block m-t-xs font-bold" align="center">PMFI / SMSA</span>
+                        </a>
+                    </div>
+                    <div class="logo-element">
+                        CCZ
+                    </div>
+                </li>
+                {% block navbar %}
+
+                    {% if perms.account.adm %}
+                        <li>
+                            <a href="/admin/"><i class="fa fa-code"></i> <span class="nav-label">ADM</span></a>
+                        </li>
+                    {% endif %}
+                    <li>
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> <span class="nav-label"
+                                                                                    style="color: #f2f0ff">Home</span></a>
+                    </li>
+                    {% if user.projeto.nome == 'Disc' or user.projeto.nome == 'Administrador' %}
+                        <li>
+                            <a href="{% url 'disc' %}"><i class="fa fa-search"></i> <span class="nav-label">Supervisão e Controle</span></a>
+                        </li>
+                    {% endif %}
+                    {% if user.projeto.nome == 'Divs' or user.projeto.nome == 'Administrador' %}
+                        <li>
+                            <a href="{% url 'divs' %}"><i class="fa fa-heart"></i> <span class="nav-label">Vigilância em Saúde</span></a>
+                        </li>
+                    {% endif %}
+                {% endblock %}
+
+            </ul>
+        </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
+                    </a>
+                    <b class="navbar" style="text-align: center; font-size: 20px">Secretaria Municipal da Saúde - Foz do
+                        Iguaçu - Paraná - Brasil</b>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <img src="{% static 'home/img/ccz/pmfi.png' %}" style="height: 50px; align-items: center"
+                             alt="">
+                    </li>
+                    <li>
+                        <b style="text-transform: uppercase;">{{ user.first_name }} {{ user.last_name }}</b>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">
+                            <i class="fa fa-sign-in-alt"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {% block content %}
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Dashboard</h2>
+                    <ul class="breadcrumb">
+                        <ol class="breadcrumb">
+                            {% block breadcrumb %}
+                                <li class="breadcrumb-item">
+                                    <a href="{% url 'home' %}">Home</a>
+                                </li>
+                            {% endblock %}
+                        </ol>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5>DIRETORIAS </h5>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="row">
+                                    {% if user.projeto.nome == 'Disc' or user.projeto.nome == 'Administrador' %}
+                                        <div class="col-lg-4">
+                                            <a href="{% url 'disc' %}">
+                                                <div class="widget style1 bg-warning">
+                                                    <div class="row">
+                                                        <div class="col-4 text-center">
+                                                            <i class="fa fa-search fa-5x"></i>
+                                                        </div>
+                                                        <div class="col-8 text-right">
+                                                            <span style="font-size: 25px"> Diretoria de Supervisão e Controle</span>
+                                                            <h2 class="font-bold"></h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                    {% if user.projeto.nome == 'Divs' or user.projeto.nome == 'Administrador' %}
+                                        <div class="col-lg-4">
+                                            <a href="{% url 'divs' %}">
+                                                <div class="widget style1 bg-danger">
+                                                    <div class="row">
+                                                        <div class="col-4 text-center">
+                                                            <i class="fa fa-heartbeat fa-5x"></i>
+                                                        </div>
+                                                        <div class="col-8 text-right">
+                                                            <span style="font-size: 25px"> Diretoria de Vigilância em Saúde</span>
+                                                            <h2 class="font-bold"></h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                    <div class="col-lg-4">
+                                        <a href="http://saudeintegrada.pmfi.pr.gov.br:3000" target="_blank">
+                                            <div class="widget style1 bg-muted">
+                                                <div class="row">
+                                                    <div class="col-4 text-center">
+                                                        <i class="fa fa-chart-bar fa-5x"></i>
+                                                    </div>
+                                                    <div class="col-8 text-right">
+                                                        <span style="font-size: 25px"> METABASE</span>
+                                                        <h2 class="font-bold"></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <a href="">
+                                            <div class="widget style1 bg-danger">
+                                                <div class="row">
+                                                    <div class="col-4 text-center">
+                                                        <i class="fa fa-map fa-5x"></i>
+                                                    </div>
+                                                    <div class="col-8 text-right">
+                                                        <span style="font-size: 25px"> TERRITORIALIZAÇÃO</span>
+                                                        <h2 class="font-bold"></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+        {% block footer %}
+            <footer class="footer">
+                © {{ ano.year }} Secretaria Municipal da Saúde - Foz do Iguaçu - PR - BR
+            </footer>
+        {% endblock %}
+    </div>
+</div>
+
+{% block base_js %}
+    <script src='{% static "home/js/jquery-3.1.1.min.js" %}'></script>
+    <script src='{% static "home/js/jquery.maskMoney.js" %}'></script>
+    <script src='{% static "home/js/bootstrap.js" %}'></script>
+    <script src='{% static "home/js/plugins/chosen/chosen.jquery.js" %}'></script>
+    <script src='{% static "home/js/plugins/metisMenu/jquery.metisMenu.js" %}'></script>
+    <script src='{% static "home/js/plugins/select2/select2.full.min.js" %}'></script>
+    <script src='{% static "home/js/plugins/slimscroll/jquery.slimscroll.min.js" %}'></script>
+    <script src='{% static "home/fontawesome/js/all.js" %}'></script>
+    <script src='{% static "home/js/plugins/jasny/jasny-bootstrap.min.js" %}'></script>
+    <script src='{% static "home/js/plugins/footable/footable.all.min.js" %}'></script>
+
+    <script src='{% static "home/js/plugins/dataTables/datatables.min.js" %}'></script>
+    <script src='{% static "home/js/plugins/dataTables/dataTables.bootstrap4.min.js" %}'></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src='{% static "home/js/plugins/pace/pace.min.js" %}'></script>
+    <script src='{% static "home/js/plugins/iCheck/icheck.min.js" %}'></script>
+    <script src='{% static "home/js/plugins/typehead/bootstrap3-typeahead.min.js" %}'></script>
+    <script src='{% static "home/js/plugins/sweetalert/sweetalert.min.js" %}'></script>
+    <script src='{% static "home/js/plugins/datapicker/bootstrap-datepicker.js" %}'></script>
+    <script src='{% static "home/js/formset.js" %}'></script>
+    <script src='{% static "home/js/plugins/select2/select2.full.min.js" %}'></script>
+    <script src='{% static "home/js/tabelas.js" %}'></script>
+{% endblock %}
+
+{% block higchart %}{% endblock %}
+{% block disc %}{% endblock %}
+{% block divs %}{% endblock %}
+
+
+</body>
+</html>

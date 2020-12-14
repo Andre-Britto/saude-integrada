@@ -1,0 +1,10 @@
+asgiref==3.3.1
+Django==3.1.4
+django-cpf==0.1.0
+django-phonenumber-field==5.0.0
+django-tenants==3.2.1
+django-widget-tweaks==1.4.8
+Pillow==8.0.1
+psycopg2-binary==2.8.6
+pytz==2020.4
+sqlparse==0.4.1

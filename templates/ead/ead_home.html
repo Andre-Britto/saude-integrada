@@ -1,0 +1,41 @@
+{% extends 'home/home.html' %}
+{% load static %}
+{% block title %}EAD - SMSA{% endblock %}
+{% block content %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>EAD - Cursos ofertados pela SMSA</h2>
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                    {{ block.super }}
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'ead' %}">EAD</a>
+                    </li>
+                {% endblock %}
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Cursos </h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        {% for curso in cursos %}
+                            <div class="card mx-auto" style="width: 18rem;">
+                                <img class="card-img-top" src="{{ curso.image.url }}" alt="{{ curso.name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ curso.nome }}</h5>
+                                    <p class="card-text"> {{ curso.description }}</p>
+                                    <a href="#" class="btn btn-primary">Inscreva-se</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
