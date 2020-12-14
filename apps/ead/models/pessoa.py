@@ -40,7 +40,7 @@ class Pessoa(FollowUserModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Usuário')
     acesso = models.IntegerField(choices=ACESSO_CHOICES, null=True, blank=True, verbose_name="Tipo de Acesso")
     nome = models.CharField(max_length=255, verbose_name="Nome")
-    data_nascimento = models.DateTimeField(verbose_name="Data de Nascimento")
+    data_nascimento = models.DateField(verbose_name="Data de Nascimento")
     cpf = CPFField(verbose_name="CPF")
     email = models.EmailField(verbose_name="Email")
     whats = models.CharField(max_length=15, verbose_name="WhatsApp")

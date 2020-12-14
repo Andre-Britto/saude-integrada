@@ -1,0 +1,30 @@
+{% extends 'home/home.html' %}
+{% load static %}
+{% block title %}EAD - SMSA{% endblock %}
+{% block content %}
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>EAD - Cursos ofertados pela SMSA</h2>
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                    {{ block.super }}
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'ead' %}">dashboard</a>
+                    </li>
+                {% endblock %}
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Bem vindo - {{ user.first_name }} {{ user.last_name }} </h5>
+                </div>
+                <div class="ibox-content">
+                   aqui é o professor
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

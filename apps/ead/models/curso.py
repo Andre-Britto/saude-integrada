@@ -40,6 +40,7 @@ class Aula(FollowUserModel):
     description = models.TextField(verbose_name='Descrição', blank=True)
     ordem = models.IntegerField(verbose_name='Número (Ordem)', blank=True, default=0)
     data_liberacao = models.DateField('Data de Liberação', blank=True, null=True)
+    time = models.TimeField(auto_now=False, auto_now_add=False, blank=True, null=True)
     curso = models.ForeignKey(Curso, verbose_name='Curso', on_delete=models.CASCADE, related_name='aulas')
     slug = models.SlugField(max_length=255, unique=True, verbose_name="Slug")
 
@@ -127,3 +128,17 @@ class Inscricao(FollowUserModel):
     class Meta:
         verbose_name_plural = 'Inscrições'
         db_table = u'inscricao'
+
+
+class Movimento(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, verbose_name='Usuário', on_delete=models.CASCADE,
+        related_name='movimentos'
+    )
+    objeto_id = models.IntegerField()
+    objeto_nome = models.CharField(max_length=255)
+    start = models.DateTimeField()
+
+    class Meta:
+        verbose_name_plural = 'Movimentos'
+        db_table = u'movimento'
